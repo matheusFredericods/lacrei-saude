@@ -34,14 +34,20 @@ const NavLinks = styled.ul<{ $isOpen: boolean }>`
   right: 0;
   height: fit-content;
   gap: 0;
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
 
   @media (min-width: 768px) {
     display: flex;
     flex-direction: row;
     position: static;
     align-items: center;
-    gap: 8px;
+    text-align: center;
+    gap: 16px;
   }
+
+
+
 `
 
 const NavLinkItem = styled.li`
@@ -55,9 +61,10 @@ const NavItem = styled(Link)`
   font-size: 1.2rem;
   text-decoration: none;
   color: #000000;
-  padding: 12px 0;
+  padding: 12px ;
   width: 100%;
   transition: background 0.3s, color 0.3s;
+  border-radius: 8px;
 
   &:hover {
     background: #018762;
@@ -102,9 +109,26 @@ const BtnOutline = styled(Link)`
     }
 `
 
+const BtnPrimary  = styled(Link)`
+background:#ffff ;
+color: #018762;
+font-weight: 700;
+text-decoration: none;
+display: inline-flex;
+align-items: center;
+  transition: background 0.3s, color 0.3s;
+  padding: 8px 12px;
+    border-radius: 4px;
+
+&:hover {
+color: #fff;
+ background: #02e2a4;
+}
+`
+
 const MobileActions = styled.div`
  display: flex;
-  lex-direction: row;
+  flex-direction: row;
   gap: 12px;
   padding: 12px 0;
   width: 100%;
@@ -140,7 +164,7 @@ export default function Header() {
             <NavItem href="/agendamento">Agendamento</NavItem>
           </NavLinkItem>
             <MobileActions >
-                  <BtnOutline href="/login">Entrar</BtnOutline>
+                  <BtnPrimary href="/login">Entrar</BtnPrimary>
                   <BtnOutline href="/cadastro">Cadastre-se</BtnOutline>
             </MobileActions >
            
@@ -148,11 +172,13 @@ export default function Header() {
         </NavLinks>
 
         <Actions>
-          <BtnOutline href="/login">Entrar</BtnOutline>
+          <BtnPrimary href="/login">Entrar</BtnPrimary>
           <BtnOutline href="/cadastro">Cadastre-se</BtnOutline>
         </Actions>
 
-        <MobileMenu onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <MobileMenu onClick={() => setIsMenuOpen(!isMenuOpen)}
+         data-testid="hamburger-button"
+          >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </MobileMenu>
       </NavWrapper>
