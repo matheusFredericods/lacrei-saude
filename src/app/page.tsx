@@ -1,6 +1,7 @@
 
 import Link from 'next/link'
 import styled from 'styled-components'
+import { theme } from '@/styles/theme'
 
 const Main = styled.main`
 width: 100%;
@@ -34,17 +35,18 @@ font-size: 1rem;
 
 const Button = styled.button`
 padding: 15px 25px;
-background: #018762;
-border: none;
-color: #fff;
+background: #FFF;
+border: 1px solid ${theme.colors.primary} ;
+color: ${theme.colors.primary};
 margin-top: 10px;
 font-size: 1rem;
-border-radius: 4px;
+border-radius: 8px;
 transition: background 0.3s, color 0.3s;
 cursor: pointer;
 
  &:hover {
-    background: #02e2a4;
+    color:#FFFF;
+    background: #018762;
     }
 `
 export default function Home() {
@@ -56,7 +58,6 @@ export default function Home() {
             Conectamos pessoas LGBTQIAPN+ a profissionais de saúde preparados
             para um atendimento acolhedor.
           </HeroSubtitle>
-
 
           <Link href="/quem-somos">
             <Button aria-label='conheça a Lacrei Saúde'>

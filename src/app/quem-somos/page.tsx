@@ -64,7 +64,7 @@ export default function QuemSomos() {
             <ContentRow>
                 <TextCol>
                 <Title>Quem Somos</Title>
-                <Description>Somos uma empresa dedicada a fornecer soluções inovadoras para nossos clientes. Com uma equipe de profissionais altamente qualificados, estamos comprometidos em entregar resultados excepcionais e superar as expectativas. Nossa missão é criar valor para nossos clientes por meio de serviços de alta qualidade e atendimento personalizado.</Description>
+                <Description>Acreditamos que o cuidado com respeito e dignidade transforma vidas e contribui para uma sociedade mais justa, por isso oferecemos um atendimento em saúde acolhedor, ético e inclusivo, com foco especial nas pessoas LGBTQIAPN+, promovendo uma experiência segura e humanizada, e atuamos com responsabilidade seguindo todas as normas e diretrizes dos órgãos reguladores.</Description>
                 </TextCol>
 
                 <ImageCol>
@@ -74,7 +74,7 @@ export default function QuemSomos() {
                     width={430}
                     height={516}
                     loading='lazy'
-                    sizes="(max-width: 768px) 100vw, 430px" /* CORREÇÃO 3: Avisa ao Next.js para redimensionar o arquivo no celular */
+                    sizes="(max-width: 768px) 100vw, 430px" 
                    style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
                    
                 />
