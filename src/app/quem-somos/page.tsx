@@ -74,7 +74,7 @@ export default function QuemSomos() {
                     width={430}
                     height={516}
                     loading='lazy'
-                    sizes="(max-width: 768px) 100vw, 430px" /* CORREÇÃO 3: Avisa ao Next.js para redimensionar o arquivo no celular */
+                    sizes="(max-width: 768px) 100vw, 430px" 
                    style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
                    
                 />
