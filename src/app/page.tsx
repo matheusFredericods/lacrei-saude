@@ -1,4 +1,4 @@
-
+import Link from 'next/link'
 import styled from 'styled-components'
 
 const Main = styled.main`
@@ -18,6 +18,10 @@ const HeroTitle = styled.h1`
 font-size: 2.5rem;
 text-align: center;
 max-width: 600px;
+
+ @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `
 
 const HeroSubtitle = styled.p`
@@ -50,9 +54,13 @@ export default function Home() {
             para um atendimento acolhedor.
           </HeroSubtitle>
 
-          <Button>
+
+          <Link href="/quem-somos">
+            <Button aria-label='conheça a Lacrei Saúde'>
             Conheça a Lacrei Saúde
-          </Button>
+           </Button>
+           </Link>
+         
       </Section>
     </Main>
   );

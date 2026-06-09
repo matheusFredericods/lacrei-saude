@@ -66,7 +66,7 @@ export default function Footer() {
             </FooterTop>
 
 
-             <FooterNav>
+             <FooterNav aria-label="Links de navegação do rodapé">
                 <FooterLink href="/">Início</FooterLink>
                 <FooterLink href="/quem-somos">Quem Somos</FooterLink>
                 <FooterLink href="/agendamento">Agendamento</FooterLink>

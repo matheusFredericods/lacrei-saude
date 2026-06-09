@@ -72,12 +72,13 @@ const NavItem = styled(Link)`
   }
 `
 
-const MobileMenu = styled.div`
+const MobileMenu = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
   background: none;
   cursor: pointer;
+  border:none;
 
   @media (min-width: 768px) {
     display: none;
@@ -116,9 +117,9 @@ font-weight: 700;
 text-decoration: none;
 display: inline-flex;
 align-items: center;
-  transition: background 0.3s, color 0.3s;
-  padding: 8px 12px;
-    border-radius: 4px;
+transition: background 0.3s, color 0.3s;
+padding: 8px 12px;
+border-radius: 4px;
 
 &:hover {
 color: #fff;
@@ -155,13 +156,19 @@ export default function Header() {
 
         <NavLinks $isOpen={isMenuOpen}>
           <NavLinkItem>
-            <NavItem href="/">Início</NavItem>
+            <NavItem href="/"
+               onClick={() => setIsMenuOpen(false)}>
+              Início</NavItem>
           </NavLinkItem>
           <NavLinkItem>
-            <NavItem href="/quem-somos">Quem Somos</NavItem>
+            <NavItem href="/quem-somos"
+              onClick={() => setIsMenuOpen(false)}
+            >Quem Somos</NavItem>
           </NavLinkItem>
           <NavLinkItem>
-            <NavItem href="/agendamento">Agendamento</NavItem>
+            <NavItem href="/agendamento"
+             onClick={() => setIsMenuOpen(false)}
+            >Agendamento</NavItem>
           </NavLinkItem>
             <MobileActions >
                   <BtnPrimary href="/login">Entrar</BtnPrimary>
@@ -172,12 +179,17 @@ export default function Header() {
         </NavLinks>
 
         <Actions>
-          <BtnPrimary href="/login">Entrar</BtnPrimary>
-          <BtnOutline href="/cadastro">Cadastre-se</BtnOutline>
+          <BtnPrimary href="/">Entrar</BtnPrimary>
+          <BtnOutline href="/">Cadastre-se</BtnOutline>
         </Actions>
 
         <MobileMenu onClick={() => setIsMenuOpen(!isMenuOpen)}
          data-testid="hamburger-button"
+        aria-label={
+         isMenuOpen
+          ? 'Fechar menu de navegação'
+           : 'Abrir menu de navegação'
+  }
           >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </MobileMenu>
