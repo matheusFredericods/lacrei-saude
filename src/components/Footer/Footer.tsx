@@ -58,6 +58,7 @@ export default function Footer() {
                 width={150}
                 height={47}
                 alt="Lacrei Saúde"
+                loading='lazy'
                 />
 
              <FooterDescription>

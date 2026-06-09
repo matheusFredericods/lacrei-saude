@@ -152,6 +152,7 @@ export default function Header() {
           width={200}
           height={63}
           alt="Lacrei Saúde"
+          priority
         />
 
         <NavLinks $isOpen={isMenuOpen}>

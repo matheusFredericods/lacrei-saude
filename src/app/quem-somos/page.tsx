@@ -1,16 +1,18 @@
+'use client';
 import Image from 'next/image';
 import styled from 'styled-components'
 
 const Main = styled.main`
 width: 100%;
 margin:0 auto;
-padding: 40px;
+padding: 40px 20px ;
 max-width: 1100px;
+contain: content;
 `
 const ContentRow = styled.div`
 display: flex;
 align-items: center;
-flex-direction: column;
+flex-direction: column-reverse;
 gap: 20px;
 
  @media (min-width: 768px) {
@@ -23,6 +25,10 @@ const ImageCol = styled.div`
 flex: 1;
 display: flex;
 justify-content: center;
+width: 100%;
+max-width: 430px;
+aspect-ratio: 430 / 516; 
+position: relative;
 img{
 border-radius: 8px;
 }`
@@ -68,6 +74,8 @@ export default function QuemSomos() {
                     width={430}
                     height={516}
                     loading='lazy'
+                    sizes="(max-width: 768px) 100vw, 430px" /* CORREÇÃO 3: Avisa ao Next.js para redimensionar o arquivo no celular */
+                   style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
                    
                 />
                 </ImageCol>

@@ -1,17 +1,20 @@
+
 import Link from 'next/link'
 import styled from 'styled-components'
 
 const Main = styled.main`
-width: 100%;`
+width: 100%;
+contain: content;
+`
 
 const Section = styled.section`
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-gap: 10px;
+gap: 16px;
 padding: 40px;
-min-height: 70vh;
+min-height: 80vh;
 `
 
 const HeroTitle = styled.h1`
