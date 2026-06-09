@@ -9,7 +9,7 @@ export default function StyledComponentsRegistry({
 }: {
   children: React.ReactNode;
 }) {
-  // Cria uma folha de estilos única por requisição do servidor
+
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 
   useServerInsertedHTML(() => {
