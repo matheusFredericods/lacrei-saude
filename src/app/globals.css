@@ -11,3 +11,8 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
 }
+
+
+main {
+  flex: 1;
+}
