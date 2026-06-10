@@ -1,33 +1,35 @@
 "use client";
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
-import styled from 'styled-components';
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import styled from "styled-components";
+import { theme } from "@/styles/theme";
+
 
 const HeaderWrapper = styled.header`
   width: 100%;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid ${theme.colors.borderColor};
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #FFFFFF;
-`
+  background: ${theme.colors.white};
+`;
 
 const NavWrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-`
+`;
 
 const NavLinks = styled.ul<{ $isOpen: boolean }>`
-  display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+  display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
   list-style: none;
   padding: 0;
   margin: 0;
   flex-direction: column;
-  background: #FFFFFF;
+  background: ${theme.colors.white};
   position: fixed;
   top: 72px;
   left: 0;
@@ -44,33 +46,33 @@ const NavLinks = styled.ul<{ $isOpen: boolean }>`
     align-items: center;
     text-align: center;
     gap: 16px;
+    background: transparent;
   }
-
-
-
-`
+`;
 
 const NavLinkItem = styled.li`
   width: 100%;
   list-style: none;
   text-align: center;
-`
+`;
 
 const NavItem = styled(Link)`
   display: block;
   font-size: 1.2rem;
   text-decoration: none;
-  color: #000000;
-  padding: 12px ;
+  color: ${theme.colors.text};
+  padding: 12px;
   width: 100%;
-  transition: background 0.3s, color 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s;
   border-radius: 8px;
 
   &:hover {
-    background: #018762;
-    color: #FFFFFF;
+    background: ${theme.colors.primary};
+    color: ${theme.colors.white};
   }
-`
+`;
 
 const MobileMenu = styled.button`
   display: flex;
@@ -78,57 +80,60 @@ const MobileMenu = styled.button`
   justify-content: center;
   background: none;
   cursor: pointer;
-  border:none;
+  border: none;
 
   @media (min-width: 768px) {
     display: none;
   }
-`
+`;
 
 const Actions = styled.div`
-display: none;
+  display: none;
 
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
     gap: 12px;
   }
-
-`
+`;
 
 const BtnOutline = styled(Link)`
-    background:#018762 ;
-    color: #FFFFFF;
-    font-weight: 700;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background 0.3s, color 0.3s;
+  background: ${theme.colors.primary};
+  color: ${theme.colors.white};
+  font-weight: 700;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition:
+    background 0.3s,
+    color 0.3s;
 
-    &:hover {
-    background: #02e2a4;
-    }
-`
+  &:hover {
+    background: ${theme.colors.primaryHover};
+  }
+`;
 
-const BtnPrimary  = styled(Link)`
-background:#ffff ;
-color: #018762;
-font-weight: 700;
-text-decoration: none;
-display: inline-flex;
-align-items: center;
-transition: background 0.3s, color 0.3s;
-padding: 8px 12px;
-border-radius: 4px;
+const BtnPrimary = styled(Link)`
+  background: ${theme.colors.white};
+  color: ${theme.colors.primary};
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition:
+    background 0.3s,
+    color 0.3s;
+  padding: 8px 12px;
+  border-radius: 4px;
 
-&:hover {
-color: #fff;
- background: #02e2a4;
-}
-`
+  &:hover {
+    color: ${theme.colors.primary};
+    background: ${theme.colors.primaryHover};
+  }
+`;
 
 const MobileActions = styled.div`
- display: flex;
+  display: flex;
   flex-direction: row;
   gap: 12px;
   padding: 12px 0;
@@ -138,8 +143,7 @@ const MobileActions = styled.div`
   @media (min-width: 768px) {
     display: none;
   }
-`
-
+`;
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -157,26 +161,24 @@ export default function Header() {
 
         <NavLinks $isOpen={isMenuOpen}>
           <NavLinkItem>
-            <NavItem href="/"
-               onClick={() => setIsMenuOpen(false)}>
-              Início</NavItem>
+            <NavItem href="/" onClick={() => setIsMenuOpen(false)}>
+              Início
+            </NavItem>
           </NavLinkItem>
           <NavLinkItem>
-            <NavItem href="/quem-somos"
-              onClick={() => setIsMenuOpen(false)}
-            >Quem Somos</NavItem>
+            <NavItem href="/quem-somos" onClick={() => setIsMenuOpen(false)}>
+              Quem Somos
+            </NavItem>
           </NavLinkItem>
           <NavLinkItem>
-            <NavItem href="/agendamento"
-             onClick={() => setIsMenuOpen(false)}
-            >Agendamento</NavItem>
+            <NavItem href="/agendamento" onClick={() => setIsMenuOpen(false)}>
+              Agendamento
+            </NavItem>
           </NavLinkItem>
-            <MobileActions >
-                  <BtnPrimary href="/login">Entrar</BtnPrimary>
-                  <BtnOutline href="/cadastro">Cadastre-se</BtnOutline>
-            </MobileActions >
-           
-          
+          <MobileActions>
+            <BtnPrimary href="/login">Entrar</BtnPrimary>
+            <BtnOutline href="/cadastro">Cadastre-se</BtnOutline>
+          </MobileActions>
         </NavLinks>
 
         <Actions>
@@ -184,17 +186,16 @@ export default function Header() {
           <BtnOutline href="/">Cadastre-se</BtnOutline>
         </Actions>
 
-        <MobileMenu onClick={() => setIsMenuOpen(!isMenuOpen)}
-         data-testid="hamburger-button"
-        aria-label={
-         isMenuOpen
-          ? 'Fechar menu de navegação'
-           : 'Abrir menu de navegação'
-  }
-          >
+        <MobileMenu
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          data-testid="hamburger-button"
+          aria-label={
+            isMenuOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"
+          }
+        >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </MobileMenu>
       </NavWrapper>
     </HeaderWrapper>
-  )
+  );
 }
